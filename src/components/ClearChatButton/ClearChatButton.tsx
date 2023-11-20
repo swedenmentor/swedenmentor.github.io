@@ -16,7 +16,6 @@ export const ClearChatButton = ({ className, disabled, onClick }: Props) => {
             icon={<Delete24Regular />}
             disabled={disabled}
             onClick={onClick}
-            styles={{ root: { backgroundColor: 'red', color: 'white' } }}
             >
                 {"Clear chat"}
             </Button>
