@@ -13,7 +13,7 @@ const Layout = () => {
             <header className={styles.header} role={"banner"}>
                 <div className={styles.headerContainer}>
                     <Link to="/" className={styles.headerTitleContainer}>
-                        <h3 className={styles.headerTitle}>Developed by a Vietnamese student group</h3>
+                        <h3 className={styles.headerTitle}>Sweden chat</h3>
                     </Link>
                     <nav>
                         <ul className={styles.headerNavList}>
@@ -41,7 +41,9 @@ const Layout = () => {
                             </li>
                         </ul>
                     </nav>
-                    <h4 className={styles.headerRightText}>An information hub for international residents living in Sweden</h4>
+                    {
+                        /* <h4 className={styles.headerRightText}>An information hub for international residents living in Sweden</h4> */
+                    }
                 </div>
             </header>
 
