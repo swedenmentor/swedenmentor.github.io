@@ -13,7 +13,7 @@ const Layout = () => {
             <header className={styles.header} role={"banner"}>
                 <div className={styles.headerContainer}>
                     <Link to="/" className={styles.headerTitleContainer}>
-                        <h3 className={styles.headerTitle}>Your AI mentor in Sweden</h3>
+                        <h3 className={styles.headerTitle}>Developed by a Vietnamese student group</h3>
                     </Link>
                     <nav>
                         <ul className={styles.headerNavList}>

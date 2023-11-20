@@ -10,8 +10,10 @@
 
 .example {
     word-break: break-word;
-    background: #d0d4d2;
-    border-radius: 8px;
+    box-shadow: 0 6.67587px 25.869px -1.66897px rgba(73,141,255,.3);
+    background: rgba(255,255,255,0.7);
+    border: 2px solid transparent;
+    border-radius: 12px;
     display: flex;
     flex-direction: column;
     padding: 15px;

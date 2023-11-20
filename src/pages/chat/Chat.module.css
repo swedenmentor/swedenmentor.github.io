@@ -22,7 +22,7 @@
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    text-align: center;
     align-items: center;
     max-height: 1024px;
     padding-top: 60px;
@@ -38,6 +38,9 @@
 .chatEmptyStateSubtitle {
     font-weight: 600;
     margin-bottom: 10px;
+    max-width: 70%; /* Set desired maximum width */
+    margin: 0 auto; /* Center the container */
+    word-wrap: break-word;
 }
 
 @media only screen and (max-height: 780px) {
