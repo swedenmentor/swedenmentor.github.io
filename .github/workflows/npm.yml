@@ -26,9 +26,11 @@ jobs:
       run: |
         npm install
         npm run build
-        
-    - name: Upload GitHub Pages artifact
-      uses: actions/upload-pages-artifact@v2.0.0
-      with:
-        path: out/
           
+    - name: Deploy
+      uses: s0/git-publish-subdir-action@develop
+      env:
+        REPO: git@github.com:swedenmentor/swedenmentor.github.io.git
+        BRANCH: gh-pages
+        FOLDER: out
+        SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_PRIVATE_KEY }}
