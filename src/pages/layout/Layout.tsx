@@ -4,8 +4,10 @@ import styles from "./Layout.module.css";
 import { useState, useEffect } from "react";
 import { LoginButton } from "../../components/LoginButton";
 
+
+
 const Layout = () => {
-    const [contributors, setContributors] = useState([]);
+{/*    const [contributors, setContributors] = useState([]);
 
     useEffect(() => {
         fetch('https://api.github.com/repos/tuananhdao/chat.duhocsinh.api/contributors')
@@ -18,7 +20,7 @@ const Layout = () => {
             }));
             setContributors(contribList);
         });
-    }, []);
+    }, []);*/}
 
     return (
         <div className={styles.layout}>
