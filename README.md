@@ -1,6 +1,6 @@
-Demo: [swedenmentor.github.io](https://swedenmentor.github.io)
+Demo: [swedenmentor.github.io](https://swedenmentor.github.io){:target="_blank"}
 
-Backend API repo: [https://github.com/swedenmentor/API](https://github.com/swedenmentor/API)
+Backend API repo: [https://github.com/swedenmentor/API](https://github.com/swedenmentor/API){:target="_blank"}
 
 ### Quick Start
 
