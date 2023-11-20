@@ -1,6 +1,6 @@
 Demo: [chat.duhocsinh.se](https://chat.duhocsinh.se)
 
-Backend API repo: [ttps://github.com/swedenmentor/API](https://github.com/swedenmentor/API)
+Backend API repo: [https://github.com/swedenmentor/API](https://github.com/swedenmentor/API)
 
 ### Quick Start
 
