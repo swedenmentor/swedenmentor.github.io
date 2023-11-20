@@ -4,12 +4,19 @@
     height: 100%;
 }
 
-.header {
-    background-color: #222255;
+.header{
+    background-color: #3a3a90;
+    box-shadow: 0 6.67587px 25.869px -1.66897px rgba(73,141,255,.3);
     color: #f2f2f2;
 }
 
-.headerContainer {
+.footer {
+    box-shadow: 0 6.67587px 25.869px -1.66897px rgba(73,141,255,.3);
+    background: rgb(168 199 255 / 70%);
+    color: #f2f2f2;
+}
+
+.headerContainer, .footerContainer {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -17,7 +24,7 @@
     margin-left: 12px;
 }
 
-.headerTitleContainer {
+.headerTitleContainer, .footerTitleContainer {
     display: flex;
     align-items: center;
     margin-right: 40px;
@@ -29,37 +36,36 @@
     height: 40px;
 }
 
-.headerTitle {
+.headerTitle, .footerTitle {
     margin-left: 12px;
     font-weight: 600;
 }
 
-.headerNavList {
+.headerNavList, .footerNavList {
     display: flex;
     list-style: none;
     padding-left: 0;
 }
 
-.headerNavPageLink {
+.headerNavPageLink, .footerNavPageLink {
     color: #f2f2f2;
     text-decoration: none;
     opacity: 0.75;
-
     transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
     transition-duration: 500ms;
     transition-property: opacity;
 }
 
-.headerNavPageLink:hover {
+.headerNavPageLink:hover, .footerNavPageLink:hover {
     opacity: 1;
 }
 
-.headerNavPageLinkActive {
+.headerNavPageLinkActive, .footerNavPageLinkActive {
     color: #f2f2f2;
     text-decoration: none;
 }
 
-.headerNavLeftMargin {
+.headerNavLeftMargin, .footerNavLeftMargin {
     margin-left: 20px;
 }
 
@@ -75,4 +81,18 @@
 
 .githubLogo {
     height: 20px;
+    margin-left: auto;
+}
+
+.contributorList {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+/* Layout.module.css */
+.footerLabel {
+    font-weight: bold;
+    color: #000;
+    padding-left: 5px;
 }
