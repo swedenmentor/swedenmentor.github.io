@@ -17,7 +17,7 @@ Then,
 
 ```bash
 npm run dev
-``
+```
 
 The frontend is live at `localhost:50505`
 
