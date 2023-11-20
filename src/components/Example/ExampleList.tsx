@@ -5,15 +5,23 @@ import styles from "./Example.module.css";
 export type ExampleModel = {
     text: string;
     value: string;
+    icon: string;
 };
 
 const EXAMPLES: ExampleModel[] = [
     {
-        text: "What is included in my Northwind Health Plus plan that is not in standard?",
-        value: "What is included in my Northwind Health Plus plan that is not in standard?"
+        text: "How much does it cost to study a Master's program in Sweden?",
+        value: "How much does it cost to study a Master's program in Sweden?",
+        icon: "./src/assets/search.svg"
     },
-    { text: "What happens in a performance review?", value: "What happens in a performance review?" },
-    { text: "What does a Product Manager do?", value: "What does a Product Manager do?" }
+    {   text: "How are income taxes calculated in Sweden?",
+        value: "How are income taxes calculated in Sweden?",
+        icon: "./src/assets/search.svg"
+    },
+    {   text: "What are the conditions for permanent residence permit in Sweden?",
+        value: "What are the conditions for permanent residence permit in Sweden?",
+        icon: "./src/assets/search.svg"
+    }
 ];
 
 interface Props {
@@ -25,7 +33,7 @@ export const ExampleList = ({ onExampleClicked }: Props) => {
         <ul className={styles.examplesNavList}>
             {EXAMPLES.map((x, i) => (
                 <li key={i}>
-                    <Example text={x.text} value={x.value} onClick={onExampleClicked} />
+                    <Example text={x.text} value={x.value} icon={x.icon} onClick={onExampleClicked} />
                 </li>
             ))}
         </ul>
