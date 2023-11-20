@@ -236,7 +236,7 @@ const Chat = () => {
                         <div className={styles.chatEmptyState}>
                             <SparkleFilled fontSize={"120px"} primaryFill={"rgba(115, 118, 225, 1)"} aria-hidden="true" aria-label="Chat logo" />
                             <h1 className={styles.chatEmptyStateTitle}>Your AI-powered mentor in Sweden</h1>
-                            <h2 className={styles.chatEmptyStateSubtitle}>Ask me anything about Sweden. What makes me so special is that I will show you the reliable sources of the information I provide</h2>
+                            <h2 className={styles.chatEmptyStateSubtitle}>What makes me so special is that I will show you the reliable sources of the information I provide</h2>
                             <ExampleList onExampleClicked={onExampleClicked} />
                         </div>
                     ) : (
