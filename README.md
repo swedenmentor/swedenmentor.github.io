@@ -1,4 +1,4 @@
-Demo: [chat.duhocsinh.se](https://chat.duhocsinh.se)
+Demo: [swedenmentor.github.io](https://swedenmentor.github.io)
 
 Backend API repo: [https://github.com/swedenmentor/API](https://github.com/swedenmentor/API)
 
