@@ -38,5 +38,5 @@ export async function chatApi(request: ChatAppRequest, idToken: string | undefin
 }
 
 export function getCitationFilePath(citation: string): string {
-    return `${BACKEND_URI}/content/${citation}`;
+    return `${citation}`;
 }
