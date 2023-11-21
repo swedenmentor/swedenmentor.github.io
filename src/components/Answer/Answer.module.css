@@ -52,6 +52,11 @@
     color: #123bb6;
     text-decoration: none;
     cursor: pointer;
+    max-width: 40ch;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inline-block;
+    overflow: hidden;
 }
 
 .citation:hover {
