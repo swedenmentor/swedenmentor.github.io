@@ -1,4 +1,4 @@
-const BACKEND_URI = "";
+const BACKEND_URI = "https://api.duhocsinh.se:8000";
 
 import { ChatAppResponse, ChatAppResponseOrError, ChatAppRequest } from "./models";
 
@@ -26,10 +26,13 @@ export async function askApi(request: ChatAppRequest, idToken: string | undefine
 }
 
 export async function chatApi(request: ChatAppRequest, idToken: string | undefined): Promise<Response> {
-    return await fetch(`${BACKEND_URI}/chat`, {
+    return await fetch(`${BACKEND_URI}/q`, {
         method: "POST",
-        headers: getHeaders(idToken),
-        body: JSON.stringify(request)
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(request),
+        mode: 'cors'
     });
 }
 
