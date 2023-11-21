@@ -81,8 +81,15 @@
 }
 
 .githubLogo {
-    height: 20px;
+    height: 25px;
+    width: 25px;
     margin-left: auto;
+}
+
+.visitUsText {
+    font-size: 23.4px;
+    font-weight: 600;
+    margin-right: 10px;
 }
 
 .contributorList {

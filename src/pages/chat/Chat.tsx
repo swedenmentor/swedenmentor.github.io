@@ -262,11 +262,14 @@ const Chat = () => {
                              Here we display the fetched contributors list */}
                             <h3 className={styles.chatEmptyStateSubtitle}>Contributors:{' '}
                                     {contributors.map((contributor, index) => (
-                                        <a href={contributor.html_url} target="_blank" rel="noopener noreferrer" style={{display: "inline-flex", alignItems: "baseline", marginRight: "10px", marginBottom: "0px"}}>
+                                        <a href={contributor.html_url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        style={{display: "inline-flex", alignItems: "baseline", marginRight: "10px", marginBottom: "0px", textDecoration: "none", color: "#5358b7"}}>
                                             <img src={contributor.avatar_url}
                                                  alt={contributor.login}
-                                                 width="20"
-                                                 height="20"
+                                                 width="25"
+                                                 height="25"
                                                  style={{marginRight: "5px", borderRadius: "50%"}}
                                             />
                                             {contributor.login}

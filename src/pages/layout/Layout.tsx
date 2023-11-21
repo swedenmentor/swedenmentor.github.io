@@ -60,7 +60,8 @@ const Layout = () => {
 
                         <ul className={styles.headerNavList}>
                             <li>
-                                <a href="https://github.com/swedenmentor/API" target={"_blank"} title="Github repository link">
+                                <span className={styles.visitUsText}>Visit us</span>
+                                 <a href="https://github.com/swedenmentor/API" target={"_blank"} title="Github repository link">
                                     <img
                                         src={github}
                                         alt="Github logo"
