@@ -1,4 +1,5 @@
 const BACKEND_URI = "https://api.duhocsinh.se:8000";
+//const BACKEND_URI = "http://127.0.0.1:8000";
 
 import { ChatAppResponse, ChatAppResponseOrError, ChatAppRequest } from "./models";
 
