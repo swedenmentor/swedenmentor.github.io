@@ -31,16 +31,16 @@
 .chatEmptyStateTitle {
     font-size: 3rem;
     font-weight: 600;
-    margin-top: 0;
+    margin-top: 20px;
     margin-bottom: 30px;
 }
 
 .chatEmptyStateSubtitle {
     font-weight: 600;
-    margin-bottom: 10px;
     max-width: 70%; /* Set desired maximum width */
     margin: 0 auto; /* Center the container */
     word-wrap: break-word;
+    margin-bottom: 30px;
 }
 
 @media only screen and (max-height: 780px) {

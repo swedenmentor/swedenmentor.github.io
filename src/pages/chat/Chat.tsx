@@ -260,7 +260,7 @@ const Chat = () => {
                             <h1 className={styles.chatEmptyStateTitle}>Your AI-powered mentor in Sweden</h1>
                             {/*<h2 className={styles.chatEmptyStateSubtitle}>What makes me so special is that I will show you the reliable sources of the information I provide</h2>
                              Here we display the fetched contributors list */}
-                            <h3 className={styles.chatEmptyStateSubtitle}>Developers:{' '}
+                            <h3 className={styles.chatEmptyStateSubtitle}>Contributors:{' '}
                                     {contributors.map((contributor, index) => (
                                         <a href={contributor.html_url} target="_blank" rel="noopener noreferrer" style={{display: "inline-flex", alignItems: "baseline", marginRight: "10px", marginBottom: "0px"}}>
                                             <img src={contributor.avatar_url}
