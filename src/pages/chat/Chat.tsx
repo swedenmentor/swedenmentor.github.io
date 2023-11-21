@@ -16,6 +16,12 @@ import { ClearChatButton } from "../../components/ClearChatButton";
 import { useMsal } from "@azure/msal-react";
 import { TokenClaimsDisplay } from "../../components/TokenClaimsDisplay";
 
+interface Contributor {
+    login: string;
+    avatar_url: string;
+    html_url: string;
+}
+
 const Chat = () => {
     const [isConfigPanelOpen, setIsConfigPanelOpen] = useState(false);
     const [promptTemplate, setPromptTemplate] = useState<string>("");
@@ -224,6 +230,22 @@ const Chat = () => {
         setSelectedAnswer(index);
     };
 
+    const [contributors, setContributors] = useState<Contributor[]>([]);
+
+        useEffect(() => {
+            fetch('https://api.github.com/repos/tuananhdao/chat.duhocsinh.api/contributors')
+            .then(response => response.json())
+            .then((data: any[]) => {
+                const contribList = data.map((contributor: any) => ({
+                    login: contributor.login,
+                    avatar_url: contributor.avatar_url,
+                    html_url: contributor.html_url,
+                }));
+                setContributors(contribList);
+            });
+        }, []);
+
+
     return (
         <div className={styles.container}>
             <div className={styles.commandsContainer}>
@@ -236,7 +258,22 @@ const Chat = () => {
                         <div className={styles.chatEmptyState}>
                             <SparkleFilled fontSize={"120px"} primaryFill={"rgba(115, 118, 225, 1)"} aria-hidden="true" aria-label="Chat logo" />
                             <h1 className={styles.chatEmptyStateTitle}>Your AI-powered mentor in Sweden</h1>
-                            <h2 className={styles.chatEmptyStateSubtitle}>What makes me so special is that I will show you the reliable sources of the information I provide</h2>
+                            {/*<h2 className={styles.chatEmptyStateSubtitle}>What makes me so special is that I will show you the reliable sources of the information I provide</h2>
+                             Here we display the fetched contributors list */}
+                            <h3 className={styles.chatEmptyStateSubtitle}>Developers:{' '}
+                                    {contributors.map((contributor, index) => (
+                                        <a href={contributor.html_url} target="_blank" rel="noopener noreferrer" style={{display: "inline-flex", alignItems: "baseline", marginRight: "10px", marginBottom: "0px"}}>
+                                            <img src={contributor.avatar_url}
+                                                 alt={contributor.login}
+                                                 width="20"
+                                                 height="20"
+                                                 style={{marginRight: "5px", borderRadius: "50%"}}
+                                            />
+                                            {contributor.login}
+                                        </a>
+                                    ))}
+                            </h3>
+
                             <ExampleList onExampleClicked={onExampleClicked} />
                         </div>
                     ) : (
