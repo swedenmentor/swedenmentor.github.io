@@ -53,7 +53,7 @@ const Layout = () => {
 
             <header className={styles.header} role={"banner"}>
                 <div className={styles.headerContainer}>
-                    <Link to="/" className={styles.headerTitleContainer}>
+                    <Link to="https://swedenmentor.github.io/" className={styles.headerTitleContainer}>
                         <h3 className={styles.headerTitle}>Sweden chat</h3>
                     </Link>
                     <nav>
