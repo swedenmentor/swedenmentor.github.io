@@ -256,20 +256,21 @@ const Chat = () => {
                 <div className={styles.chatContainer}>
                     {!lastQuestionRef.current ? (
                         <div className={styles.chatEmptyState}>
-                            <SparkleFilled fontSize={"120px"} primaryFill={"rgba(115, 118, 225, 1)"} aria-hidden="true" aria-label="Chat logo" />
+                            <SparkleFilled fontSize={"5rem"} primaryFill={"rgba(115, 118, 225, 1)"} aria-hidden="true" aria-label="Chat logo" />
                             <h1 className={styles.chatEmptyStateTitle}>Your AI-powered mentor in Sweden</h1>
                             {/*<h2 className={styles.chatEmptyStateSubtitle}>What makes me so special is that I will show you the reliable sources of the information I provide</h2>
                              Here we display the fetched contributors list */}
                             <h3 className={styles.chatEmptyStateSubtitle}>Contributors:{' '}
                                     {contributors.map((contributor, index) => (
                                         <a href={contributor.html_url}
+					key={contributor.login}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         style={{display: "inline-flex", alignItems: "baseline", marginRight: "10px", marginBottom: "0px", textDecoration: "none", color: "#5358b7"}}>
                                             <img src={contributor.avatar_url}
                                                  alt={contributor.login}
-                                                 width="25"
-                                                 height="25"
+                                                 width="15"
+                                                 height="15"
                                                  style={{marginRight: "5px", borderRadius: "50%"}}
                                             />
                                             {contributor.login}
