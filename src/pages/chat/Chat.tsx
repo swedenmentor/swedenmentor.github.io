@@ -28,7 +28,7 @@ const Chat = () => {
     const [retrieveCount, setRetrieveCount] = useState<number>(3);
     const [retrievalMode, setRetrievalMode] = useState<RetrievalMode>(RetrievalMode.Hybrid);
     const [useSemanticRanker, setUseSemanticRanker] = useState<boolean>(true);
-    const [shouldStream, setShouldStream] = useState<boolean>(false);
+    const [shouldStream, setShouldStream] = useState<boolean>(true);
     const [useSemanticCaptions, setUseSemanticCaptions] = useState<boolean>(false);
     const [excludeCategory, setExcludeCategory] = useState<string>("");
     const [useSuggestFollowupQuestions, setUseSuggestFollowupQuestions] = useState<boolean>(false);
@@ -134,6 +134,7 @@ const Chat = () => {
             if (!response.body) {
                 throw Error("No response body");
             }
+
             if (shouldStream) {
                 const parsedResponse: ChatAppResponse = await handleAsyncRequest(question, answers, setAnswers, response.body);
                 setAnswers([...answers, [question, parsedResponse]]);
@@ -232,18 +233,20 @@ const Chat = () => {
 
     const [contributors, setContributors] = useState<Contributor[]>([]);
 
-        useEffect(() => {
-            fetch('https://api.github.com/repos/tuananhdao/chat.duhocsinh.api/contributors')
+    useEffect(() => {
+        fetch('https://api.github.com/repos/tuananhdao/chat.duhocsinh.api/contributors')
             .then(response => response.json())
             .then((data: any[]) => {
-                const contribList = data.map((contributor: any) => ({
-                    login: contributor.login,
-                    avatar_url: contributor.avatar_url,
-                    html_url: contributor.html_url,
-                }));
-                setContributors(contribList);
+                if (typeof data.map === "function") {
+                    const contribList = data.map((contributor: any) => ({
+                        login: contributor.login,
+                        avatar_url: contributor.avatar_url,
+                        html_url: contributor.html_url,
+                    }));
+                    setContributors(contribList);
+                }
             });
-        }, []);
+    }, []);
 
 
     return (
@@ -257,27 +260,29 @@ const Chat = () => {
                     {!lastQuestionRef.current ? (
                         <div className={styles.chatEmptyState}>
                             <h1 className={styles.chatEmptyStateTitle}>
-			    	<SparkleFilled fontSize={"2rem"} primaryFill={"rgba(115, 118, 225, 1)"} aria-hidden="true" aria-label="Chat logo" />
+                                <SparkleFilled fontSize={"2rem"} primaryFill={"rgba(115, 118, 225, 1)"} aria-hidden="true" aria-label="Chat logo" />
 				Your AI-powered mentor in Sweden
 				</h1>
                             {/*<h2 className={styles.chatEmptyStateSubtitle}>What makes me so special is that I will show you the reliable sources of the information I provide</h2>
                              Here we display the fetched contributors list */}
                             <h3 className={styles.chatEmptyStateSubtitle}>Contributors:{' '}
-                                    {contributors.map((contributor, index) => (
-                                        <a href={contributor.html_url}
-					key={contributor.login}
+                                {contributors.map((contributor, index) => (
+                                    <a href={contributor.html_url}
+                                        key={contributor.login}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        style={{display: "inline-flex", alignItems: "baseline", marginRight: "10px", marginBottom: "0px", textDecoration: "none", color: "#5358b7"}}>
-                                            <img src={contributor.avatar_url}
-                                                 alt={contributor.login}
-                                                 width="15"
-                                                 height="15"
-                                                 style={{marginRight: "5px", borderRadius: "50%"}}
-                                            />
+                                        style={{ display: "inline-flex", alignItems: "baseline", marginBottom: "0px", textDecoration: "none", color: "#5358b7" }}>
+                                        <img src={contributor.avatar_url}
+                                            alt={contributor.login}
+                                            width="15"
+                                            height="15"
+                                            style={{ marginRight: "5px", borderRadius: "50%" }}
+                                        />
+                                        <span className={styles.desktopOnly} style={{ marginRight: "10px" }}>
                                             {contributor.login}
-                                        </a>
-                                    ))}
+                                        </span>
+                                    </a>
+                                ))}
                             </h3>
 
                             <ExampleList onExampleClicked={onExampleClicked} />
@@ -342,7 +347,7 @@ const Chat = () => {
                         </div>
                     )}
 
-                    <div className={styles.chatInput}>
+                    <div className={styles.chatInput} hidden={isStreaming}>
                         <QuestionInput
                             clearOnSend
                             placeholder="Type a new question (e.g. which currency do you pay with in Sweden?)"
