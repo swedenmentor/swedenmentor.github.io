@@ -63,7 +63,7 @@ const Chat = () => {
                     };
                     setStreamedAnswers([...answers, [question, latestResponse]]);
                     resolve(null);
-                }, 33);
+                }, 1);
             });
         };
         try {
