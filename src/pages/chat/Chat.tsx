@@ -105,6 +105,9 @@ const Chat = () => {
             // }
         } finally {
             setIsStreaming(false);
+	    setTimeout(() => {
+	    	window.scrollTo(0, document.body.scrollHeight);
+	    }, 100);
         }
         const fullResponse: ChatAppResponse = {
             ...askResponse,
