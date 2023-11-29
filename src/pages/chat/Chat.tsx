@@ -1,7 +1,8 @@
 import { useRef, useState, useEffect } from "react";
 import { Checkbox, Panel, DefaultButton, TextField, SpinButton, Dropdown, IDropdownOption } from "@fluentui/react";
 import { SparkleFilled } from "@fluentui/react-icons";
-import readNDJSONStream from "ndjson-readablestream";
+//import readNDJSONStream from "ndjson-readablestream";
+import ndjsonStream from "can-ndjson-stream";
 
 import styles from "./Chat.module.css";
 
@@ -68,7 +69,13 @@ const Chat = () => {
         };
         try {
             setIsStreaming(true);
-            for await (const event of readNDJSONStream(responseBody)) {
+            const streamReader = ndjsonStream(responseBody).getReader();
+            let result;
+            while (!result || !result.done) {
+                result = await streamReader.read();
+                let event = result.value;
+                if (!event)
+                    continue;
                 if (event["choices"] && event["choices"][0]["context"] && event["choices"][0]["context"]["data_points"]) {
                     event["choices"][0]["message"] = event["choices"][0]["delta"];
                     askResponse = event;
@@ -82,6 +89,20 @@ const Chat = () => {
                     throw Error(event["error"]);
                 }
             }
+            // for await (const event of readNDJSONStream(responseBody)) {
+            //     if (event["choices"] && event["choices"][0]["context"] && event["choices"][0]["context"]["data_points"]) {
+            //         event["choices"][0]["message"] = event["choices"][0]["delta"];
+            //         askResponse = event;
+            //     } else if (event["choices"] && event["choices"][0]["delta"]["content"]) {
+            //         setIsLoading(false);
+            //         await updateState(event["choices"][0]["delta"]["content"]);
+            //     } else if (event["choices"] && event["choices"][0]["context"]) {
+            //         // Update context with new keys from latest event
+            //         askResponse.choices[0].context = { ...askResponse.choices[0].context, ...event["choices"][0]["context"] };
+            //     } else if (event["error"]) {
+            //         throw Error(event["error"]);
+            //     }
+            // }
         } finally {
             setIsStreaming(false);
         }
