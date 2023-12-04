@@ -264,7 +264,7 @@ const Chat = () => {
                 if (typeof data.map === "function") {
                     const contribList = data.map((contributor: any) => ({
                         login: contributor.login,
-                        avatar_url: contributor.avatar_url,
+                        avatar_url: contributor.avatar_url+"&s=16",
                         html_url: contributor.html_url,
                     }));
                     setContributors(contribList);
